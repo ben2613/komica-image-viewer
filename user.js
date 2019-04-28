@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Komica Page Image Viewer
 // @namespace    https://github.com/ben2613
-// @version      0.1
+// @version      0.2
 // @description  Make button which open a image viewer with basic navigating features
 // @author       ben2613
 // @match        https://*.komica.org/*
@@ -126,7 +126,7 @@ if (!String.prototype.endsWith) {
     }).click(() => {
         currentIndex--
         if(currentIndex < 0 ) {
-            currentIndex = imgStack.legnth - 1
+            currentIndex = imgStack.length - 1
         }
         reloadImage()
     })
