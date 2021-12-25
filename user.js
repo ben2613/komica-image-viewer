@@ -162,4 +162,11 @@ if (!String.prototype.endsWith) {
         cachel.attr('src', imgStack[1])
         cacher.attr('src', imgStack[imgStack.length - 1])
     }
+	
+	// auto fit small image when reading in a vertical monitor
+	if (window.innerWidth < window.innerHeight) {
+	$('#kImageViewer img').css('width', () => {return '100% !important'}).css('height', () => { return 'unset !important'})
+	} else {
+	$('#kImageViewer img').css('height', ()=> {return '100% !important'}).css('width', () => { return 'unset !important'})
+	}
 })()
