@@ -163,10 +163,14 @@ if (!String.prototype.endsWith) {
         cacher.attr('src', imgStack[imgStack.length - 1])
     }
 	
-	// auto fit small image when reading in a vertical monitor
-	if (window.innerWidth < window.innerHeight) {
-	$('#kImageViewer img').css('width', () => {return '100% !important'}).css('height', () => { return 'unset !important'})
-	} else {
-	$('#kImageViewer img').css('height', ()=> {return '100% !important'}).css('width', () => { return 'unset !important'})
-	}
+    // auto fit smaller image when reading in a vertical monitor
+    function resizeImage() {
+    if (window.innerWidth < window.innerHeight) {
+      $('#kImageViewer img').attr('style', 'width: 100% !important')
+    } else {
+      $('#kImageViewer img').attr('style','height: 100% !important')
+    }
+    }
+    window.addEventListener('resize', () => resizeImage())
+    resizeImage()
 })()
